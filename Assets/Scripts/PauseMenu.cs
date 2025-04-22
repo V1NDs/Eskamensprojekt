@@ -29,5 +29,14 @@ public class PauseMenu : MonoBehaviour
         // Control player states
         characterController.canMove = !pauseMenu.activeSelf;
         Cursor.visible = pauseMenu.activeSelf;
+        
+        if (pauseMenu.activeSelf)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

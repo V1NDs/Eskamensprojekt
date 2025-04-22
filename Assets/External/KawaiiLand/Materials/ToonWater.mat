@@ -81,7 +81,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SurfaceNoise:
         m_Texture: {fileID: 2800000, guid: e182ac5d3b797044fb29f3fa2acc3708, type: 3}
-        m_Scale: {x: 30, y: 10}
+        m_Scale: {x: 1000, y: 1000}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
@@ -140,8 +140,8 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _SurfaceDistortionAmount: 0.27
-    - _SurfaceNoiseCutoff: 0.797
+    - _SurfaceDistortionAmount: 0.217
+    - _SurfaceNoiseCutoff: 0.569
     - _Use_Waves: 0
     - _Water_Depth_Fade_Distance: 0.41
     - _Wave_Height: 1
@@ -156,15 +156,16 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Deep_Water_Color: {r: 0.16509432, g: 1, b: 0.9145231, a: 0.56078434}
-    - _DepthGradientDeep: {r: 0.086274505, g: 0.77571887, b: 1, a: 0.749}
-    - _DepthGradientShallow: {r: 0.427451, g: 1, b: 0.72391486, a: 0.725}
+    - _DepthGradientDeep: {r: 0.90188676, g: 0.16966373, b: 0, a: 1}
+    - _DepthGradientShallow: {r: 1, g: 0, b: 0.029707909, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 1, g: 0.7081547, b: 0.020754695, a: 1}
     - _Foam_Color: {r: 1, g: 1, b: 1, a: 0.8666667}
     - _Shallow_Water_Color: {r: 0, g: 0.7732315, b: 1, a: 0.44705883}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SurfaceNoiseScroll: {r: 0.03, g: 0.03, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &7561685586543787574
 MonoBehaviour:
   m_ObjectHideFlags: 11

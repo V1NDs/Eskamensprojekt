@@ -9,11 +9,13 @@ public class Gun : MonoBehaviour
     [Header("References")]
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
+    [SerializeField] private AudioSource audio;
 
     float timeSinceLastShot;
 
     private void Start()
     {
+        audio = GetComponent<AudioSource>();
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += StartReload;
     }
@@ -66,6 +68,6 @@ public class Gun : MonoBehaviour
     }
 
     private void OnGunShot() {
-        print("Shot weapon");
+        audio.Play();
     }
 }
