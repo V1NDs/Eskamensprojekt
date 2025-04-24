@@ -10,13 +10,15 @@ public class MainMenu : MonoBehaviour
     // Hide options and show main
     public void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         mainMenu.SetActive(true);
         optionsMenu.SetActive(false);
     }
 
     public void Play()
     {
-        SceneManager.LoadScene("MainGame");
+        SceneManager.LoadScene("Game");
     }
 
     public void Quit()
