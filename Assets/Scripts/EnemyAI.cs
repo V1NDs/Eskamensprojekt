@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour
             if (!recentlyAttacked)
             {
                 // Damage
-                print("Attack");
+                GameObject.Find("Player").GetComponent<Health>().TakeDamage(20);
 
                 recentlyAttacked = true;
                 Invoke(nameof(ResetAttack), attackSpeed);
