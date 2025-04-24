@@ -21,12 +21,12 @@ public class Health : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        slider.value = currentHealth;
 
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
+        slider.value = currentHealth;
 
         if (currentHealth <= 0)
         {

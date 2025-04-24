@@ -13,6 +13,7 @@ public class medkit : MonoBehaviour
             Debug.Log("Hit Player");
             other.GetComponent<Health>().TakeDamage(-heal);
             Destroy(gameObject);
+            
         }
 
     }
