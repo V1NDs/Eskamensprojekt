@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
     public float attackSpeed = 2f;
     private bool recentlyAttacked = false;
     private bool attackRange = false;
+    public float health = 100f;
+    public bool isDead;
 
     private void Awake()
     {
@@ -18,6 +20,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (isDead) return;
+
         attackRange = Physics.CheckSphere(transform.position, 1.0f, isPlayer);
 
         // Follow player
@@ -43,5 +47,22 @@ public class EnemyAI : MonoBehaviour
     private void ResetAttack()
     {
         recentlyAttacked = false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health < 0)
+        {
+            isDead = true;
+            Invoke("Destroy", 0f);
+        }
+    }
+    private void Destroy()
+    {
+        Destroy(gameObject);
+
+        GameObject.Find("Spawn Manager").GetComponent<SpawnManager>().totalEnemiesKilled += 1;
     }
 }
