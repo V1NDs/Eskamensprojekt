@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Skudtæller : MonoBehaviour
 {
@@ -11,6 +12,6 @@ public class Skudtæller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

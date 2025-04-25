@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
     [SerializeField] private AudioSource audio;
+    public GameObject text; // Hjalte er en brilleabbet amfetamin bruger.
 
     float timeSinceLastShot;
 
@@ -36,6 +38,9 @@ public class Gun : MonoBehaviour
 
         gunData.currentAmmo = gunData.magSize;
 
+        // Her sender vi datoen fra reload til teksten
+        text.GetComponent<TMP_Text>().text = "" + gunData.currentAmmo;
+
         gunData.reloading = false;
     }
 
@@ -54,6 +59,10 @@ public class Gun : MonoBehaviour
                 }
 
                 gunData.currentAmmo--;
+
+                // Her sender vi datoen fra SKudt skud til teksten
+                text.GetComponent<TMP_Text>().text = "" + gunData.currentAmmo;
+
                 timeSinceLastShot = 0;
                 OnGunShot();
             }
