@@ -15,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     public int totalEnemiesSpawned = 0;
     public int totalEnemiesKilled = 0;
     public GameObject[] SpawnPoints;
+    public GameObject medkitSpawner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +34,7 @@ public class SpawnManager : MonoBehaviour
 
             //Spawn one
             Instantiate(prefab, whereToSpawn, Quaternion.identity);
+            medkitSpawner.GetComponent<MedkitSpawner>().SpawnMedkits(whereToSpawn);
 
             totalEnemiesSpawned += 1;
         }
