@@ -11,16 +11,16 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] private KeyCode reloadKey = KeyCode.R;
 
-    private void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            shootInput?.Invoke();
-        }
+    //private void Update()
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        shootInput?.Invoke();
+    //    }
 
-        if (Input.GetKeyDown(reloadKey))
-        {
-            reloadInput?.Invoke();
-        }
-    }
+    //    if (Input.GetKeyDown(reloadKey))
+    //    {
+    //        reloadInput?.Invoke();
+    //    }
+    //}
 }
