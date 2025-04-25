@@ -9,7 +9,7 @@ public class MedkitSpawner : MonoBehaviour
     public void SpawnMedkits(Vector3 position)
     {
         position.x += 2f;
-        position.y += 2f;
+        position.z += 2f;
         Instantiate(medkit, position, Quaternion.identity);
 
     }
