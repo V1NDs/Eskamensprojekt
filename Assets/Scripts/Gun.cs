@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
+        cam = Camera.main.transform;
         audio = GetComponent<AudioSource>();
         PlayerShoot.shootInput += Shoot;
         PlayerShoot.reloadInput += StartReload;
