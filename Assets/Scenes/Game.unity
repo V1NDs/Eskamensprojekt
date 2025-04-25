@@ -62115,7 +62115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b4e01b2f409b841ba09b3a1df2e1cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  medkit: {fileID: 7846102761876707822, guid: 0ae8a320b625613478390a92b72767fa, type: 3}
+  medkit: {fileID: 621584630249350254, guid: b18ffeee72fdbda4ab116f6877728d49, type: 3}
 --- !u!4 &874045777
 Transform:
   m_ObjectHideFlags: 0
