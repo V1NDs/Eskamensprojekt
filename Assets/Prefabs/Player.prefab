@@ -298,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  slider: {fileID: 0}
 --- !u!1 &8291419219000224238
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6c7050d9d9ff67447b55dc1ddc458013, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6c7050d9d9ff67447b55dc1ddc458013, type: 3}
       propertyPath: m_LocalPosition.y
@@ -540,6 +541,7 @@ MonoBehaviour:
   gunData: {fileID: 11400000, guid: fb1bd683a01f267468ed21fa6f2e955d, type: 2}
   cam: {fileID: 1052728094016263380}
   audio: {fileID: 530350192972939834}
+  text: {fileID: 0}
 --- !u!82 &530350192972939834
 AudioSource:
   m_ObjectHideFlags: 0
