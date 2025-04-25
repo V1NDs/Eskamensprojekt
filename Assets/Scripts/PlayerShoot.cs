@@ -14,9 +14,13 @@ public class PlayerShoot : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButton(0))
+        {
             shootInput?.Invoke();
+        }
 
         if (Input.GetKeyDown(reloadKey))
+        {
             reloadInput?.Invoke();
+        }
     }
 }
