@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
+using TMPro;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject prefab;
+    //public GameObject prefab;
+    public GameObject[] models;
     private bool started = false;
     public int wave = 0;
     public int addonEnemiesPerWave = 3;
@@ -15,6 +18,8 @@ public class SpawnManager : MonoBehaviour
     public int totalEnemiesKilled = 0;
     public GameObject[] SpawnPoints;
     public GameObject medkitSpawner;
+    public TMP_Text counterText;
+    public TMP_Text waveText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,7 +37,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 whereToSpawn = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Length)].transform.position;
 
             //Spawn one
-            Instantiate(prefab, whereToSpawn, Quaternion.identity);
+            Instantiate(models[UnityEngine.Random.Range(0, models.Length)], whereToSpawn, Quaternion.identity);
             medkitSpawner.GetComponent<MedkitSpawner>().SpawnMedkits(whereToSpawn);
 
             totalEnemiesSpawned += 1;
@@ -43,6 +48,15 @@ public class SpawnManager : MonoBehaviour
             wave += 1;
             float newEnemies = addonEnemiesPerWave * difficultyMultiplier;
             totalEnemies = Mathf.Round(totalEnemies + newEnemies);
+        }
+
+        counterText.text = totalEnemiesKilled.ToString();
+        waveText.text = "Wave " + wave.ToString();
+
+        // Low difficulty faster reload
+        if (difficultyMultiplier <= 2.0)
+        {
+            GameObject.Find("pistol_1").GetComponent<Gun>().reloadFaster = true;
         }
     }
 

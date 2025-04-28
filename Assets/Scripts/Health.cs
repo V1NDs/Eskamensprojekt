@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public Slider slider;
     public bool reverted = false;
+    public bool canLavaDamage = true;
+    public AudioSource lavaAudio;
 
     // Start is called once before the first frame update
     void Start()
@@ -46,16 +48,25 @@ public class Health : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.layer == 4)
+        if (hit.gameObject.layer == 4 && canLavaDamage)
         {
             reverted = false;
             GameObject.Find("Player").GetComponent<FPSController>().walkSpeed = 2f;
             GameObject.Find("Player").GetComponent<FPSController>().runSpeed = 3f;
-            TakeDamage(1);
+            TakeDamage(10);
+            canLavaDamage = false;
+
+            Invoke("RestartLavaDamage", 1);
+            lavaAudio.Play();
         } else
         {
             GameObject.Find("Player").GetComponent<FPSController>().walkSpeed = 4f;
             GameObject.Find("Player").GetComponent<FPSController>().runSpeed = 6f;
         }
+    }
+
+    void RestartLavaDamage()
+    {
+        canLavaDamage = true;
     }
 }

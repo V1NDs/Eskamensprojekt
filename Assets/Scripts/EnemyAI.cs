@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour
     private bool attackRange = false;
     public float health = 100f;
     public bool isDead;
+    public string type;
+    public int damage = 20;
 
     private void Awake()
     {
@@ -22,7 +24,15 @@ public class EnemyAI : MonoBehaviour
     {
         if (isDead) return;
 
-        attackRange = Physics.CheckSphere(transform.position, 1.0f, isPlayer);
+        if (type == "melee")
+        {
+            attackRange = Physics.CheckSphere(transform.position, 1.0f, isPlayer);
+        }
+
+        if (type == "stink")
+        {
+            attackRange = Physics.CheckSphere(transform.position, 5.0f, isPlayer);
+        }
 
         // Follow player
         agent.SetDestination(player.position);
@@ -30,13 +40,16 @@ public class EnemyAI : MonoBehaviour
         // If close to attack, stop and damage
         if (attackRange)
         {
-            agent.SetDestination(transform.position);
-            transform.LookAt(player);
+            if (type == "melee")
+            {
+                agent.SetDestination(transform.position);
+                transform.LookAt(player);
+            }
 
             if (!recentlyAttacked)
             {
                 // Damage
-                GameObject.Find("Player").GetComponent<Health>().TakeDamage(20);
+                GameObject.Find("Player").GetComponent<Health>().TakeDamage(damage);
                 GameObject.Find("Spawn Manager").GetComponent<SpawnManager>().ChangeDifficulty(false);
 
                 recentlyAttacked = true;

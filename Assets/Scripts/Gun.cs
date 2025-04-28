@@ -13,6 +13,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private AudioSource audio;
     public GameObject text;
     public float extraDamage = 1.0f;
+    public bool reloadFaster = false;
 
     float timeSinceLastShot;
 
@@ -35,8 +36,14 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload()
     {
         gunData.reloading = true;
+         float reloadTimee = gunData.reloadTime;
 
-        yield return new WaitForSeconds(gunData.reloadTime);
+        if (reloadFaster)
+        {
+            reloadTimee = reloadTimee / 2;
+        }
+
+        yield return new WaitForSeconds(reloadTimee);
 
         gunData.currentAmmo = gunData.magSize;
 

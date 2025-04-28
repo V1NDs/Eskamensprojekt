@@ -909,6 +909,8 @@ MonoBehaviour:
   attackSpeed: 2
   health: 100
   isDead: 0
+  type: melee
+  damage: 20
 --- !u!195 &4771231342749524923
 NavMeshAgent:
   m_ObjectHideFlags: 0
