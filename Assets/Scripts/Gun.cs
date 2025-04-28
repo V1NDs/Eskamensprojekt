@@ -79,7 +79,7 @@ public class Gun : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Reload();
+            StartReload();
         }
 
         timeSinceLastShot += Time.deltaTime;
