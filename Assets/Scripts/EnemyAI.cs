@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour
             {
                 // Damage
                 GameObject.Find("Player").GetComponent<Health>().TakeDamage(20);
+                GameObject.Find("Spawn Manager").GetComponent<SpawnManager>().ChangeDifficulty(false);
 
                 recentlyAttacked = true;
                 Invoke(nameof(ResetAttack), attackSpeed);
@@ -57,6 +58,7 @@ public class EnemyAI : MonoBehaviour
         {
             isDead = true;
             Invoke("Destroy", 0f);
+            GameObject.Find("Spawn Manager").GetComponent<SpawnManager>().ChangeDifficulty(true);
         }
     }
     private void Destroy()

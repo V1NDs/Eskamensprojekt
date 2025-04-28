@@ -59387,8 +59387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 928685275848382727, guid: c9676beaa62179748806c9b782ecf861, type: 3}
   wave: 0
-  addonEnemiesPerWave: 5
-  difficultyMultiplier: 1.5
+  addonEnemiesPerWave: 3
+  difficultyMultiplier: 1
   totalEnemies: 0
   totalEnemiesSpawned: 0
   totalEnemiesKilled: 0

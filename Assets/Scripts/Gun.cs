@@ -11,7 +11,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
     [SerializeField] private AudioSource audio;
-    public GameObject text; // Hjalte er en brilleabbet amfetamin bruger.
+    public GameObject text;
+    public float extraDamage = 1.0f;
 
     float timeSinceLastShot;
 
@@ -56,7 +57,7 @@ public class Gun : MonoBehaviour
                 if (Physics.Raycast(cam.position, cam.forward, out RaycastHit hitInfo, gunData.maxDistance))
                 {
                     EnemyAI damageable = hitInfo.transform.GetComponent<EnemyAI>();
-                    damageable?.TakeDamage(gunData.damage);
+                    damageable?.TakeDamage(gunData.damage * extraDamage);
                 }
 
                 gunData.currentAmmo--;

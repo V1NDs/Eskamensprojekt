@@ -8,9 +8,8 @@ public class SpawnManager : MonoBehaviour
     public GameObject prefab;
     private bool started = false;
     public int wave = 0;
-    private int difficulty = 0;
-    public int addonEnemiesPerWave = 5;
-    public float difficultyMultiplier = 5.0f;
+    public int addonEnemiesPerWave = 3;
+    public float difficultyMultiplier = 1.0f;
     public float totalEnemies;
     public int totalEnemiesSpawned = 0;
     public int totalEnemiesKilled = 0;
@@ -20,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Invoke("StartGame", 5);
+        Invoke("StartGame", 3);
     }
 
     // Update is called once per frame
@@ -47,11 +46,22 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    public void ChangeDifficulty(bool increase)
+    {
+        if (increase)
+        {
+            difficultyMultiplier += 0.1f;
+        } else
+        {
+            difficultyMultiplier -= 0.1f;
+        }
+    }
+
     // Start the game
     void StartGame()
     {
         wave = 1;
-        difficulty = 1;
+        difficultyMultiplier = 1.0f;
         totalEnemies = addonEnemiesPerWave;
         started = true;
     }

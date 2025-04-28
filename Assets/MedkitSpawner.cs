@@ -8,8 +8,9 @@ public class MedkitSpawner : MonoBehaviour
 
     public void SpawnMedkits(Vector3 position)
     {
-        position.x += 2f;
-        position.z += 2f;
+        position.x += Random.Range(-3f, 3f);
+        position.z += Random.Range(-3f, 3f);
+        position.y += 1f;
         Instantiate(medkit, position, Quaternion.identity);
 
     }

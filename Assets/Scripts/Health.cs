@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public Slider slider;
+    public bool reverted = false;
 
     // Start is called once before the first frame update
     void Start()
@@ -22,18 +23,24 @@ public class Health : MonoBehaviour
     {
         currentHealth -= amount;
 
+        if (currentHealth <= 40)
+        {
+            GameObject.Find("pistol_1").GetComponent<Gun>().extraDamage = 1.5f;
+        } else
+        {
+            GameObject.Find("pistol_1").GetComponent<Gun>().extraDamage = 1.0f;
+        }
+
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
+
         slider.value = currentHealth;
 
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene("MainMenu");
-            //We're Dead
-            //Play Death Anymation 
-            //Show GameOver screen
+            SceneManager.LoadScene("Death Screen");
         }
     }
 
@@ -41,7 +48,14 @@ public class Health : MonoBehaviour
     {
         if (hit.gameObject.layer == 4)
         {
+            reverted = false;
+            GameObject.Find("Player").GetComponent<FPSController>().walkSpeed = 2f;
+            GameObject.Find("Player").GetComponent<FPSController>().runSpeed = 3f;
             TakeDamage(1);
+        } else
+        {
+            GameObject.Find("Player").GetComponent<FPSController>().walkSpeed = 4f;
+            GameObject.Find("Player").GetComponent<FPSController>().runSpeed = 6f;
         }
     }
 }
