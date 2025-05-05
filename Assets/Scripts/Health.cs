@@ -23,6 +23,11 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (amount > 0)
+        {
+            lavaAudio.Play();
+        }
+
         currentHealth -= amount;
 
         if (currentHealth <= 40)

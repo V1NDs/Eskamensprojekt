@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -29,14 +30,16 @@ public class PauseMenu : MonoBehaviour
         // Control player states
         characterController.canMove = !pauseMenu.activeSelf;
         Cursor.visible = pauseMenu.activeSelf;
-        
+
         if (pauseMenu.activeSelf)
         {
             Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0;
         }
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1.0f;
         }
     }
 }
