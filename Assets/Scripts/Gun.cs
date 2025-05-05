@@ -11,6 +11,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private GunData gunData;
     [SerializeField] private Transform cam;
     [SerializeField] private AudioSource audio;
+    [SerializeField] private AudioSource hitmarker;
+    [SerializeField] private AudioSource reload;
     public GameObject text;
     public float extraDamage = 1.0f;
     public bool reloadFaster = false;
@@ -43,7 +45,11 @@ public class Gun : MonoBehaviour
             reloadTimee = reloadTimee / 2;
         }
 
+        reload.Play();
+
         yield return new WaitForSeconds(reloadTimee);
+
+        reload.Stop();
 
         gunData.currentAmmo = gunData.magSize;
 
@@ -65,6 +71,11 @@ public class Gun : MonoBehaviour
                 {
                     EnemyAI damageable = hitInfo.transform.GetComponent<EnemyAI>();
                     damageable?.TakeDamage(gunData.damage * extraDamage);
+
+                    if (damageable)
+                    {
+                        hitmarker.Play();
+                    }
                 }
 
                 gunData.currentAmmo--;

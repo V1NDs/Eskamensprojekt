@@ -12,7 +12,7 @@ public class FPSController : MonoBehaviour
     public float gravity = 10f;
 
 
-    public float lookSpeed = 2f;
+    public float lookSpeed = 1f;
     public float lookXLimit = 60f;
 
 
@@ -23,11 +23,13 @@ public class FPSController : MonoBehaviour
 
 
     CharacterController characterController;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        lookSpeed = PlayerPrefs.GetFloat("sens");
     }
 
     void Update()
