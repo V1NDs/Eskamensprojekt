@@ -4994,6 +4994,7 @@ MonoBehaviour:
   isDead: 0
   type: stink
   damage: 10
+  mAnimator: {fileID: 8489151489251248545}
 --- !u!195 &4771231342749524923
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5028,6 +5029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DGN_Pig_Outline Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8365193281521056605, guid: 3051a28ad5a62b047b04449426165407, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 61f1d3efd28f0c34184f3164845c00b9, type: 3}
     - target: {fileID: 8365193281521056605, guid: 3051a28ad5a62b047b04449426165407, type: 3}
       propertyPath: m_AnimatePhysics
       value: 1
@@ -5084,6 +5089,11 @@ PrefabInstance:
       addedObject: {fileID: 4538185899812289300}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3051a28ad5a62b047b04449426165407, type: 3}
+--- !u!95 &8489151489251248545 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8365193281521056605, guid: 3051a28ad5a62b047b04449426165407, type: 3}
+  m_PrefabInstance: {fileID: 133037287776154364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8910191683349644897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8827047117285848221, guid: 3051a28ad5a62b047b04449426165407, type: 3}

@@ -69,10 +69,12 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
         mAnimator.SetTrigger("Damage");
+
         if (health < 0)
         {
+            mAnimator.SetBool("Death", true);
             isDead = true;
-            Invoke("Destroy", 0f);
+            Invoke("Destroy", 2.1f);
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>().ChangeDifficulty(true);
         }
     }
