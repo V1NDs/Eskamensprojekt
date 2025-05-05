@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3331592054270082747}
-  - component: {fileID: 4872319202186536463}
+  - component: {fileID: 8461521637998540797}
   m_Layer: 0
   m_Name: DGN_Deer_Outline Variant
   m_TagString: Untagged
@@ -227,7 +227,7 @@ Transform:
   - {fileID: 7653260042770239213}
   m_Father: {fileID: 1638023650570898656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &4872319202186536463
+--- !u!95 &8461521637998540797
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -911,6 +911,7 @@ MonoBehaviour:
   isDead: 0
   type: melee
   damage: 20
+  mAnimator: {fileID: 8461521637998540797}
 --- !u!195 &4771231342749524923
 NavMeshAgent:
   m_ObjectHideFlags: 0

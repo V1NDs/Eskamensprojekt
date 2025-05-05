@@ -13,9 +13,11 @@ public class EnemyAI : MonoBehaviour
     public bool isDead;
     public string type;
     public int damage = 20;
+    public Animator mAnimator;
 
     private void Awake()
     {
+        mAnimator = mAnimator.GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
@@ -66,7 +68,7 @@ public class EnemyAI : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-
+        mAnimator.SetTrigger("Damage");
         if (health < 0)
         {
             isDead = true;
@@ -80,4 +82,5 @@ public class EnemyAI : MonoBehaviour
 
         GameObject.Find("Spawn Manager").GetComponent<SpawnManager>().totalEnemiesKilled += 1;
     }
+
 }
