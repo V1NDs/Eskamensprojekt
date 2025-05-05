@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     public string type;
     public int damage = 20;
     public Animator mAnimator;
+    public ParticleSystem bloodEffectPrefab;  // Tildel dit blod-partikel prefab i inspector
 
     private void Awake()
     {
@@ -48,7 +49,7 @@ public class EnemyAI : MonoBehaviour
                 transform.LookAt(player);
             }
 
-            if (!recentlyAttacked)
+            if (!recentlyAttacked && !isDead)
             {
                 // Damage
                 GameObject.Find("Player").GetComponent<Health>().TakeDamage(damage);
@@ -67,14 +68,26 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
+
         health -= damage;
         mAnimator.SetTrigger("Damage");
+
+        // Spawn blood effect på spillerens position
+        ParticleSystem blood = Instantiate(bloodEffectPrefab, transform.position, Quaternion.identity);
+        blood.Play();
+
+        // Valgfrit: Ødelæg blood effect efter varighed
+        Destroy(blood.gameObject, blood.main.duration);
 
         if (health < 0)
         {
             mAnimator.SetBool("Death", true);
+            agent.isStopped = true;
+
             isDead = true;
-            Invoke("Destroy", 2.1f);
+            Invoke("Destroy", 2.5f);
+
             GameObject.Find("Spawn Manager").GetComponent<SpawnManager>().ChangeDifficulty(true);
         }
     }
