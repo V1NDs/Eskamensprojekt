@@ -4995,6 +4995,8 @@ MonoBehaviour:
   type: stink
   damage: 10
   mAnimator: {fileID: 8489151489251248545}
+  bloodEffectPrefab: {fileID: 0}
+  blood: {fileID: 6830137308824358608, guid: 58c43a391b6c2244aabbff4e5ef81dcb, type: 3}
 --- !u!195 &4771231342749524923
 NavMeshAgent:
   m_ObjectHideFlags: 0
