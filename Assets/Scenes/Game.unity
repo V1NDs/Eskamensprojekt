@@ -155226,6 +155226,10 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 3a0fb711a4acc9c4d8395def5a5dc020, type: 3}
+    - target: {fileID: 1291804113993463637, guid: ca5d98a6c8cb2e447a064915bfc1a383, type: 3}
+      propertyPath: m_Height
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3765525837865899403, guid: ca5d98a6c8cb2e447a064915bfc1a383, type: 3}
       propertyPath: text
       value: 
@@ -155293,6 +155297,10 @@ PrefabInstance:
     - target: {fileID: 7914575804852261073, guid: ca5d98a6c8cb2e447a064915bfc1a383, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004527403419858675, guid: ca5d98a6c8cb2e447a064915bfc1a383, type: 3}
+      propertyPath: m_Height
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

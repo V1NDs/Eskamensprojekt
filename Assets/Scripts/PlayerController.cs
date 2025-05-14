@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 [RequireComponent(typeof(CharacterController))]
 public class FPSController : MonoBehaviour
@@ -10,6 +11,7 @@ public class FPSController : MonoBehaviour
     public float runSpeed = 14f;
     public float jumpPower = 8f;
     public float gravity = 10f;
+    public bool crouching;
 
 
     public float lookSpeed = 1f;
@@ -34,10 +36,10 @@ public class FPSController : MonoBehaviour
 
     void Update()
     {
-
         #region Handles Movment
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
+        crouching = Input.GetKey(KeyCode.LeftControl);
 
         // Press Left Shift to run
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
@@ -45,6 +47,15 @@ public class FPSController : MonoBehaviour
         moveDir.x = Input.GetAxis("Horizontal");
         moveDir.z = Input.GetAxis("Vertical");
         float curSpeed = canMove ? (isRunning ? runSpeed : walkSpeed) : 0;
+
+        if (crouching)
+        {
+            curSpeed = curSpeed / 2;
+            characterController.height = 1f;
+        } else
+        {
+            characterController.height = 2f;
+        }
         
         moveDir = moveDir.normalized * curSpeed;
         float movementDirectionY = moveDirection.y;

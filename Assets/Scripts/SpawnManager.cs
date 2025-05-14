@@ -67,7 +67,10 @@ public class SpawnManager : MonoBehaviour
             difficultyMultiplier += 0.1f;
         } else
         {
-            difficultyMultiplier -= 0.1f;
+            if (difficultyMultiplier > 1f)
+            {
+                difficultyMultiplier -= 0.1f;
+            }
         }
     }
 
